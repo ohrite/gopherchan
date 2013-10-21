@@ -23,7 +23,7 @@ func (controller *PostCreateController) Handle(conn net.Conn, request *gopher.Re
   post.Save()
 
   response := BuildResponse(
-    gopher.NewDirectoryResponseLine("New Post", "/new", controller.Host, controller.Port),
+    gopher.NewPromptResponseLine("New Post", "/new", controller.Host, controller.Port),
     gopher.NewCommentResponseLine(""),
   )
   AddPostResponseLines(response, controller.Host, controller.Port)

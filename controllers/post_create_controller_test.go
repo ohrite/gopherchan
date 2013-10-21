@@ -57,7 +57,7 @@ var _ = Describe("PostCreateController", func(){
 
     It("prints a link to the new post path", func() {
       controller.Handle(fakeConn, request, params)
-      Expect(fakeConn.WriteBuf.String()).To(ContainSubstring("New Post"))
+      Expect(fakeConn.WriteBuf.String()).To(ContainSubstring("7New Post"))
       Expect(fakeConn.WriteBuf.String()).To(ContainSubstring("/new"))
     })
 
