@@ -17,6 +17,7 @@ var _ = Describe("PostCreateController", func(){
   )
 
   BeforeEach(func() {
+    ClearPosts()
     controller = NewPostCreateController("host", "port")
   })
 
@@ -46,8 +47,8 @@ var _ = Describe("PostCreateController", func(){
     BeforeEach(func() {
       fakeConn = new(testConnection)
       urlObj = &url.URL{}
-      request = gopher.NewRequest(urlObj, "")
-      params = map[string]string{"body": "omg shoes"}
+      request = gopher.NewRequest(urlObj, "omg shoes")
+      params = map[string]string{}
     })
 
     It("creates a new post with the given body", func() {

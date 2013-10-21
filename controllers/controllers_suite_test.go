@@ -8,7 +8,14 @@ import (
   "bytes"
   "time"
   "testing"
+
+  "github.com/ohrite/gopherchan/models"
 )
+
+func ClearPosts() {
+  models.Posts = []models.Post{}
+  models.PostId = 0
+}
 
 func TestControllers(t *testing.T) {
   RegisterFailHandler(Fail)

@@ -17,6 +17,7 @@ var _ = Describe("PostIndexController", func(){
   )
 
   BeforeEach(func() {
+    ClearPosts()
     controller = NewPostIndexController("host", "port")
   })
 

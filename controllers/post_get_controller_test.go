@@ -17,6 +17,7 @@ var _ = Describe("PostGetController", func(){
   )
 
   BeforeEach(func() {
+    ClearPosts()
     controller = NewPostGetController("host", "port")
   })
 
