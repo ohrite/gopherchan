@@ -19,7 +19,7 @@ func NewPostIndexController(host string, port string) (*PostIndexController) {
 
 func (controller *PostIndexController) Handle(conn net.Conn, request *gopher.Request, params map[string]string) {
   response := BuildResponse(
-    gopher.NewDirectoryResponseLine("New Post", "/new", controller.Host, controller.Port),
+    gopher.NewPromptResponseLine("New Post", "/new", controller.Host, controller.Port),
     gopher.NewCommentResponseLine(""),
   )
   AddPostResponseLines(response, controller.Host, controller.Port)
