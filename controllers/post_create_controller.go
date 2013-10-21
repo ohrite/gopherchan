@@ -19,7 +19,7 @@ func NewPostCreateController(host string, port string) (*PostCreateController) {
 }
 
 func (controller *PostCreateController) Handle(conn net.Conn, request *gopher.Request, params map[string]string) {
-  post := Post{Body:params["body"]}
+  post := Post{Body:request.Body}
   post.Save()
 
   response := BuildResponse(
