@@ -30,7 +30,7 @@ func (server *Server) URL() *url.URL {
 }
 
 func (server *Server) Address() string {
-  return "localhost:" + server.Port
+  return ":" + server.Port
 }
 
 func (server *Server) GopherServer() *gopher.Server {
