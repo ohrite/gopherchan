@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+gem install thor aws-sdk --no-rdoc --no-ri

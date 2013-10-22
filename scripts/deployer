@@ -1,0 +1,52 @@
+#!/usr/bin/env ruby
+
+require "json"
+require "thor"
+require "aws"
+
+class Deployer < Thor
+  desc "deploy", "Deploy an application"
+  def deploy
+    p opsworks_client.create_deployment(
+      stack_id: stack_id,
+      app_id: app_id,
+      instance_ids: instance_ids,
+      command: {name: "deploy"}
+    )
+  end
+
+  private
+
+  def opsworks_client
+    @opsworks_client ||= AWS::OpsWorks::Client.new(
+      access_key_id: access_key_id,
+      secret_access_key: secret_access_key
+    )
+  end
+
+  def access_key_id
+    ENV.fetch("AWS_ACCESS_KEY_ID")
+  end
+
+  def secret_access_key
+    ENV.fetch("AWS_SECRET_ACCESS_KEY")
+  end
+
+  def aws_region
+    ENV.fetch("AWS_REGION")
+  end
+
+  def stack_id
+    ENV.fetch("OPSWORKS_STACK_ID")
+  end
+
+  def app_id
+    ENV.fetch("OPSWORKS_APP_ID")
+  end
+
+  def instance_ids
+    ENV.fetch("OPSWORKS_INSTANCE_IDS").split(" ")
+  end
+end
+
+Deployer.start(ARGV)

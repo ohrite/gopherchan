@@ -7,7 +7,8 @@ before_script:
 script:
 - scripts/ci
 after_success:
-- scripts/deploy
+- scripts/postrequisites
+- scripts/deployer deploy
 env:
   global:
   - secure: SIdWwWYG+Q/z+G4MyRKzBGp6K+IW9sqChBmXCkxXjnflDV/9+O0vDfaKSXMMJy1OVeizaNvjtWCktcZX5GzpQQrz0Maf6dB/8P0QpzFToVll+GI1W6/mIInm7jlnIGig/Zpa3J6Oy4VEidXk1C6wDrXe+Q28Tzv2APh2qQkccBE=
