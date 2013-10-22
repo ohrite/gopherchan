@@ -41,7 +41,7 @@ var _ = Describe("Server", func() {
 
   Describe("Address()", func() {
     It("returns the proposed address of the gopher server", func() {
-      Expect(server.Address()).To(Equal(":localham"))
+      Expect(server.Address()).To(Equal("0.0.0.0:localham"))
     })
   })
 
@@ -51,7 +51,7 @@ var _ = Describe("Server", func() {
     })
 
     It("has an address set to the gopherchan address", func() {
-      Expect(server.GopherServer().Address).To(Equal(":localham"))
+      Expect(server.GopherServer().Address).To(Equal("0.0.0.0:localham"))
     })
   })
 })
