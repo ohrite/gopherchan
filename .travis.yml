@@ -9,13 +9,13 @@ script:
 - go test -v
 after_success:
 - sudo pip install awscli
-- aws --region=$AWS_REGION opsworks create-deployment --stack-id=$OPSWORKS_STACK_ID --app-id=$OPSWORKS_APP_ID --instance-ids="[$OPSWORKS_INSTANCE_IDS]" --command=$OPSWORKS_DEPLOY_COMMAND
+- aws --region=$AWS_REGION opsworks create-deployment --stack-id=$OPSWORKS_STACK_ID --app-id=$OPSWORKS_APP_ID --command=$OPSWORKS_DEPLOY_COMMAND --instance-ids="[$OPSWORKS_INSTANCE_IDS]"
 env:
   global:
-    - OPSWORKS_DEPLOY_COMMAND="{'Name': 'deploy'}"
   - secure: CzhoRQ7Uqp3+khzkeZuOSTIPwArH0mMy65fzmBRJmaUIVaD9Srum5RXxpld4SfvS2KC6dgMmr3u852bQ6qRtnaM+libr//E3qQK23/x4k/OEBgs//M+CK3E6kYst+ssQCLROLD041prkzLfayy0tFGTaUqVAtf81iqPw1Lgm0lM=
   - secure: mwPnMJXO+JKonD/vn4N3lMaktZHhYRufB2I/Ayq2+RcIYomRDVoke8sWlcvcSkK/hVgW49xzzpsf9DhqPKOzVyRn6GLMYs1jBaU1+oB2XXzNTusNhDBJW+Q83fsqGn8qb1Z1BMVSzKVShCSCAdSw500QnVfKBd9O/TDTydr5kYc=
   - secure: BV8b/nj9dLr52jqpQQiqgKLhxEnwqvQd3k/JHT2zzbu8VDM426w+Q7Uanhn2BxlW8Z1r7tbzBENroWvRy2Jk8GPsc7ys/YfxeNNMZPrZL7oTcuFSttnqqw+D0pnxmvqKpqgN4WcQW9dNt3Oootb5FtguNd0wQsCaqzYBczBwRdI=
   - secure: J5BXQGER5rOao7fIirSDYGigx9SlasKZJbvC2bgE1seO4bd5MkJf9tSr6JcPSD44sXcvCqvIFuXEGEoeFJm7Ee/rTuwMU2eaufMbiI0IsX7MPE3c8zv1sURqWmZ/ikDGYN5bnr0YKc3f+ArISZAbMFlPDVziwdjnxjk49OxT1/A=
   - secure: lN48YcHubiRDBmnfdRvMFgeH5yYNCNzBe7RwOfibd8F5AAtmmik7wz+hMDa2Cswg+VWIaxJcAJMcNzMaQz2IkrU+EwGH3V42wAl5v5W0PgTyyxvg6LxRgwyUFtoZHl5v9V8sJwO+st9IRp2xYvJxFwYfSeZ/CEaezVd+NR7zVNs=
   - secure: OsAXC9kdA7obeah3VdPHrcMJMWKgeRDYq8BlRQDzrDj6O0yN3JQAHHttH2F6qvup3WOKZ2/hBRMyAs0XILJqRP/sX25PsGxP0Q+A/QIBONGO0nd9DB0k67EtfX0lUwB5h304mv7bejCeOzjJJt8zfkaZ9SN/qhKCCydWW2lBTxY=
+  - secure: Iu72tJAx5WKF+Lkc6zq+fIYutjFBaeLOEnA+ZU627PtTIwX9VYLb883uYG7xzsXPsZBA9GXEg9C636/iAvwAK4kJ1yg52D3zzFZQiFBXigQFLTStZh2LM/HR7JuGGxAEZnF3pJQTBPxTj5mqlOBreaQqfYz6XdvV5KtbxOxprz4=
