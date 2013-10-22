@@ -7,5 +7,5 @@ aws \
 opsworks create-deployment \
   --stack-id="$OPSWORKS_STACK_ID" \
   --app-id="$OPSWORKS_APP_ID" \
-  --instance-ids="$OPSWORKS_INSTANCE_IDS" \
+  --instance-ids="[$OPSWORKS_INSTANCE_IDS]" \
 --command='{"Name": "deploy"}'
