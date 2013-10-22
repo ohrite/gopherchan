@@ -3,20 +3,16 @@ go:
 - 1.1
 - release
 before_script:
-- go get github.com/onsi/ginkgo
-- go get github.com/onsi/gomega
+- scripts/prerequisites
 script:
-- go test -v
+- scripts/ci
 after_success:
-- sudo pip install awscli
-- aws --region=$AWS_REGION opsworks create-deployment --stack-id=$OPSWORKS_STACK_ID
-  --app-id=$OPSWORKS_APP_ID --command="$OPSWORKS_DEPLOY_COMMAND" --instance-ids="$OPSWORKS_INSTANCE_IDS"
+- scripts/deploy
 env:
   global:
   - secure: SIdWwWYG+Q/z+G4MyRKzBGp6K+IW9sqChBmXCkxXjnflDV/9+O0vDfaKSXMMJy1OVeizaNvjtWCktcZX5GzpQQrz0Maf6dB/8P0QpzFToVll+GI1W6/mIInm7jlnIGig/Zpa3J6Oy4VEidXk1C6wDrXe+Q28Tzv2APh2qQkccBE=
   - secure: digkBKHwpBNzTlrQZjlzkPwLWpqF3d9yvd08jvSgqvYNj3eY7THfRfOJIKRREqlVxZqy0O0ggJtr+uzEIuE5hQp2oGoM8pGXNL9gagkf35CTrU4uoqLqOBDUY/3OGNWy8KdnDTxolIYz0LrY76D6b1oY2enLqqetwBt9UDakJHY=
   - secure: mIK7WBWoRqPLdUYkqGFlpy5IuexY8YKLrT+qWo1qiq9EBoEpubyPGOhkH5u4DI22d4+AAEjO6HX2p7E3u0VWaIr5L6bk5g0s9TaRnbrKfNmq1XFSdqZv9WJcAQISjWOOJA3g5IehtYfzhmRGasfV1wxMP+G9UJO6D8fGIrvWMHE=
-  - secure: ILj4AgqDtkyMi//HlCjyT0ZLMq8wr7eZRQd3gz1rSvN7J/nUWP+V3qbaL2JPh7U94AfvHXtwFZgoY6GDtUOyQ+BsQf44bK98RZ5WH6BL3lhUcOtVj22EJQFly5VJffBzbL9zpWerdP9FiGvNBTZetUE2464kCYudPGPQW9YKyOY=
   - secure: K3mNKkpjoWCLbhLZBMYvbf6LQq1luHYkHkfYWkFQ/ySL6VwNBXV/iWeDZ1e3NNgHHJXX3obU7YWy12dK5gJ2olSeQJSSjdsy/vDhlE7EjAAVn0kcrAHu3HCKI7T4ntRX1A/Gv0Cd24uLL+69zEfEZwwGnmCwuqS6csV5yqiDVNk=
   - secure: aAbmcYZIfEtt5/FC8l8zvNVkj3zA1u/oMWLl44IegkcWAlX5EJjhnDB86vvhgPZKNwWjCp2BMlwSGp4yCGvYYUGk2JE5EyilY3gVquYtSt3c1jF+P8oGynfDjc2N7/9jKqAWA7LXwsfajHcnPCDAJXtvnPmNRiQi0FSUr7Hkk9E=
   - secure: JwJsRifwBZxDYknC12GzNEoAU9Nqtx4xWjLydrrujJCOKKV2foqN1q8eGd9Jg9pNGvwDesfsrh3z5+RsqWUXWD8XiEJwP1PAMZ9DreA/f6Oj6ORfC8U/sbkqqycPaRfxDg0YNHmgI1BLW5PEhmeo3ifw6vB3+sOTMUJ5aHzPUYk=
