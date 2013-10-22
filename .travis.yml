@@ -12,7 +12,7 @@ after_success:
 - aws --region=$AWS_REGION opsworks create-deployment --stack-id=$OPSWORKS_STACK_ID --app-id=$OPSWORKS_APP_ID --instance-ids="[$OPSWORKS_INSTANCE_IDS]" --command=$OPSWORKS_DEPLOY_COMMAND
 env:
   global:
-    OPSWORKS_DEPLOY_COMMAND: {"Name": "deploy"}
+    - OPSWORKS_DEPLOY_COMMAND="{'Name': 'deploy'}"
   - secure: CzhoRQ7Uqp3+khzkeZuOSTIPwArH0mMy65fzmBRJmaUIVaD9Srum5RXxpld4SfvS2KC6dgMmr3u852bQ6qRtnaM+libr//E3qQK23/x4k/OEBgs//M+CK3E6kYst+ssQCLROLD041prkzLfayy0tFGTaUqVAtf81iqPw1Lgm0lM=
   - secure: mwPnMJXO+JKonD/vn4N3lMaktZHhYRufB2I/Ayq2+RcIYomRDVoke8sWlcvcSkK/hVgW49xzzpsf9DhqPKOzVyRn6GLMYs1jBaU1+oB2XXzNTusNhDBJW+Q83fsqGn8qb1Z1BMVSzKVShCSCAdSw500QnVfKBd9O/TDTydr5kYc=
   - secure: BV8b/nj9dLr52jqpQQiqgKLhxEnwqvQd3k/JHT2zzbu8VDM426w+Q7Uanhn2BxlW8Z1r7tbzBENroWvRy2Jk8GPsc7ys/YfxeNNMZPrZL7oTcuFSttnqqw+D0pnxmvqKpqgN4WcQW9dNt3Oootb5FtguNd0wQsCaqzYBczBwRdI=
