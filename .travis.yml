@@ -8,7 +8,7 @@ before_script:
 script:
 - go test -v
 after_success:
-- pip install awscli
+- sudo pip install awscli
 - |
   aws --region="$AWS_REGION" opsworks create-deployment --stack-id="$OPSWORKS_STACK_ID" --app-id="$OPSWORKS_APP_ID" --instance-ids="$OPSWORKS_INSTANCE_IDS" --command='{"Name": "deploy"}'
 env:
